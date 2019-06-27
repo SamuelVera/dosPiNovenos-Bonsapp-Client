@@ -1,0 +1,43 @@
+.custom-ui{ 
+    background: white;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.custom-ui h1{
+    text-align: center;
+    font-style: oblique;
+    font-size: 1.6rem;
+    padding: 5px;
+}
+
+.custom-ui p{
+    text-align: start;
+    font-style: oblique;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+    .custom-ui-buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 5px;
+    }
+
+        .custom-ui-buttons button{
+            padding: 3px;
+            background: whitesmoke;
+            border-style: none;
+            border-radius: 15px;
+        }
+
+        .custom-ui-buttons button:hover{
+            padding: 3px;
+            background: gray;
+            color: white;
+            border-style: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }

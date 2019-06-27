@@ -1,0 +1,209 @@
+@keyframes backgroundChange {
+    0% { background-color: rgba(116, 179, 14, 0.493); }
+    12% { background-color: rgba(117, 179, 17, 0.781); }
+    24% { background-color: rgba(91, 160, 13, 0.719); }
+    36% { background-color: rgba(53, 42, 6, 0.5); }
+    48% { background-color: rgba(44, 7, 7, 0.5); }
+    60% { background-color: rgba(44, 7, 7, 0.5); }
+    72% { background-color: rgba(53, 42, 6, 0.5); }
+    84% { background-color: rgba(51, 129, 6, 0.493); }
+    90% { background-color: rgba(70, 158, 11, 0.336); }
+    100% { background-color: rgba(103, 202, 11, 0.342);  }
+}
+
+@keyframes backgroundChangeButton {
+    0% { background-color: rgba(44, 7, 7, 0.8); border-color: rgba(44, 7, 7, 0.5);  }
+    12% { background-color: rgba(53, 42, 6, 0.8); border-color: rgba(53, 42, 6, 0.5); }
+    24% { background-color: rgba(109, 83, 13, 0.562); border-color: rgba(40, 109, 13, 0.5); }
+    36% { background-color: rgba(167, 119, 17, 0.534); border-color: rgba(16, 196, 16, 0.5); }
+    48% { background-color: rgba(146, 124, 0, 0.699); border-color: rgba(6, 255, 6, 0.5); }
+    60% { background-color: rgba(104, 160, 15, 0.342); border-color: rgba(6, 255, 6, 0.5); }
+    72% { background-color: rgba(6, 110, 6, 0.418); border-color: rgba(16, 196, 16, 0.5); }
+    84% { background-color: rgba(40, 109, 13, 0.8); border-color: rgba(40, 109, 13, 0.5); }
+    90% { background-color: rgba(53, 42, 6, 0.8); border-color: rgba(53, 42, 6, 0.5); }
+    100% { background-color: rgba(44, 7, 7, 0.8); border-color: rgba(44, 7, 7, 0.5); }
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-form {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    order: 1;
+    width: 70%;
+    vertical-align: center;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    animation: backgroundChange;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    font-weight: bold;
+}
+
+.login-form-div {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.login-form-div-select {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.login-form-label {
+    order: 1;
+    align-self: flex-start;
+    margin-bottom: 5px;
+}
+
+.login-form-input {
+    order: 2;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-style: groove;
+    border-color: rgb(17, 68, 6);
+    border-radius: 3px;
+    padding-top: 5px;
+}
+
+.login-form-select-label {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.login-form-select {
+    margin-bottom: 5px;
+    align-self: center;
+    order: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+    background: rgb(7, 41, 4);
+    border-style: solid;
+    border-color: rgb(26, 117, 6);
+    border-radius: 3px;
+}
+
+.login-form-button {
+    order: 3;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #fff;
+    animation: backgroundChangeButton;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    text-shadow: 0 1px 0 rgba(0,0,0,.2);
+    cursor: pointer;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.login-register{
+    order: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.login-register-label{
+    order: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+    font-size: 1em;
+    color: black;
+    margin-right: 2em;
+    margin-top: 0.3em;
+}
+
+.login-register-button{
+    order: 2;
+    font-size: 1em;
+    font-weight: 700;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+    text-transform: uppercase;
+    background: transparent;
+    animation: backgroundChangeButton;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    text-decoration: underline dotted rgb(33, 219, 16);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-style: outset;
+    border-color: rgb(90, 68, 6);
+    border-radius: 5px;
+    display: flex;
+}
+
+@media (min-width: 700px){
+
+    .login-form-label {
+        order: 1;
+        align-self: flex-start;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .login-register-label{
+        order: 1;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+        font-size: 1.5em;
+        color: black;
+        margin-right: 2em;
+        margin-top: 0.3em;
+    }
+}
+
+@media (min-width: 1000px){
+
+    .login-form {
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        order: 1;
+        width: 30%;
+        vertical-align: center;
+        border-style: solid;
+        border-color: white;
+        border-radius: 10px;
+        animation: backgroundChange;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        font-weight: bold;
+    }
+
+    .login-form-label {
+        order: 1;
+        align-self: flex-start;
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+    }
+
+    .login-register-label{
+        order: 1;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+        font-size: 1.5em;
+        color: black;
+        margin-right: 2em;
+        margin-top: 0.3em;
+    }
+}

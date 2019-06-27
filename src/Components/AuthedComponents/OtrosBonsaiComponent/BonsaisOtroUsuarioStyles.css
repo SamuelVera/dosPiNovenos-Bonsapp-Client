@@ -1,0 +1,23 @@
+.container-bonsais-otro-user{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 5px;
+}
+
+.bonsai-otro-user{
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-width: 1px;
+}
+
+    .bosai-otro-user-info{
+        order: 1;
+    }
+
+    .bonsai-otro-user-go{
+        order: 2;
+    }
+

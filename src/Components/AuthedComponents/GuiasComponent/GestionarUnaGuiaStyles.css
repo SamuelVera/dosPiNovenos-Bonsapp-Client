@@ -1,0 +1,263 @@
+.gestion-guia-container-info{
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-style: double;
+    font-size: 1rem;
+}
+
+    .gestion-guia-container-info-1{
+        order: 1;
+        text-align: center;
+        margin-top: 3px;
+    }
+
+        .gestion-guia-container-info-1 button{
+            width: 40%;
+        }
+
+    .gestion-guia-container-info-2{
+        order: 2;
+        text-align: center;
+        margin-top: 3px;
+        border-top-style: double;
+    }
+
+    .gestion-guia-container-info-3{
+        order: 3;
+        text-align: center;
+        margin-top: 3px;
+        border-top-style: double;
+    }
+
+.gestion-guia-opinion{
+    display: flex;
+    flex-direction: column;
+    border-style: double;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+    .gestion-guia-opinion button{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 90%;
+        align-self:center;
+    }
+
+    .gestion-guia-opinion .gestion-guia-opinion-positivas{
+        font-size: 0.5rem;
+        margin-top: 5px;
+    }
+
+        .gestion-guia-opinion .gestion-guia-opinion-positivas .next{
+            width: 40px;
+            height: 50px;
+        }
+
+        .gestion-guia-opinion .gestion-guia-opinion-positivas .previous{
+            width: 40px;
+            height: 50px;
+        }
+
+        .gestion-guia-opinion .gestion-guia-opinion-positivas h4{
+            font-size: 1rem;
+        }
+
+    .gestion-guia-opinion .gestion-guia-opinion-negativas{
+        font-size: 0.5rem;
+        margin-top: 5px;
+        border-top-style: double;
+    }
+
+    .gestion-guia-opinion .gestion-guia-opinion-comentarios{
+        margin-top: 5px;
+        border-top-style: double;
+        font-size: 0.5rem;
+    }
+
+        .gestion-guia-opinion .gestion-guia-opinion-comentarios .next{
+            width: 40px;
+            height: 50px;
+        }
+
+        .gestion-guia-opinion .gestion-guia-opinion-comentarios .previous{
+            width: 40px;
+            height: 50px;
+        }
+
+        .gestion-guia-opinion .gestion-guia-opinion-comentarios h4{
+            font-size: 1rem;
+        }
+
+.gestion-guia-pdfcontainer form button{
+    margin-top: 5px;
+}
+
+@media (min-width: 700px){
+
+    .gestion-guia-container-info{
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-style: double;
+        font-size: 1rem;
+    }
+            
+        .gestion-guia-container-info-1{
+            order: 1;
+            text-align: start;
+            margin-top: 1px;
+            width: 28%;
+        }
+
+            .gestion-guia-container-info-1 button{
+                width: 80%;
+            }
+
+        .gestion-guia-container-info-2{
+            order: 2;
+            text-align: start;
+            margin-top: 1px;
+            border-top-style: none;
+        }
+
+        .gestion-guia-container-info-3{
+            order: 3;
+            text-align: start;
+            margin-top: 1px;
+            border-top-style: none;
+        }
+
+    .gestion-comentarios-items{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-column-gap: 6px;
+    }
+}
+
+@media (min-width:1000px){
+    .gestion-guia{
+        display: flex;
+        flex-direction: column;
+    }
+
+        .gestion-guia-container-info{
+            order: 1;
+            border-style: double;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+            .gestion-guia-container-info-1{
+                order: 1;
+                text-align: start;
+                margin-top: 3px;
+                font-size: 1.2rem;
+            }
+
+            .gestion-guia-container-info-1 button{
+                margin-top: 2px;
+            }
+
+            .gestion-guia-container-info-2{
+                order: 2;
+                text-align: start;
+                margin-top: 3px;
+                font-size: 1.2rem;
+            }
+
+            .gestion-guia-container-info-3{
+                order: 3;
+                text-align: start;
+                margin-top: 3px;
+                font-size: 1.2rem;
+            }
+        
+        .gestion-guia-opinion{
+            order: 2;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-gap: 30px;
+            border-style: double;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+            .gestion-guia-opinion .show{
+                height: 25px;
+                align-self: start;
+            }
+
+            .gestion-guia-opinion-positivas{
+                border-style: double;
+                margin-top: 2.5px;
+                margin-bottom: 2.5px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .gestion-guia-opinion-negativas{
+                border-style: double;
+                margin-top: 2.5px;
+                margin-bottom: 2.5px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .gestion-guia-opinion-comentarios{
+                border-style: double;
+                margin-top: 2.5px;
+                margin-bottom: 2.5px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+        .gestion-guia-pdfcontainer{
+            order: 3;
+            display: flex;
+            flex-direction: column;
+            grid-column-gap: 30px;
+            border-style: double;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+        }
+
+            .gestion-guia-pdfcontainer button{
+                margin-top: 5px;
+            }
+
+        .gestion-comentarios-items{
+            display: flex;
+            flex-direction: column;
+            grid-column-gap: 6px;
+        }
+}

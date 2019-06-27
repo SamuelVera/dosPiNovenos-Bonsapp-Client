@@ -1,0 +1,21 @@
+.login {
+    flex: 1;
+}
+.register {
+    flex: 1;
+}
+
+
+.offline{
+    align-self: center;
+    color: red;
+    font-weight: bold;
+    background: rgba(163, 162, 162, 0.267);
+    border-radius: 15px;
+    border-style: solid;
+    padding: 5px;
+    width: 50%;
+    border-color: black;
+    margin-left: 25%;
+    margin-top: 40px;
+}

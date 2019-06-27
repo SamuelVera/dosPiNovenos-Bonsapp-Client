@@ -1,0 +1,84 @@
+.one-guia-otro-perfil .container{
+    display: flex;
+    flex-direction: column;
+}
+
+    .one-guia-otro-perfil .container .guia-container{
+        order: 1;
+        padding-top: 5px;
+    }
+
+        .one-guia-otro-perfil .container .guia-container .guia-container-info{
+            border-style: none;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+            .one-guia-otro-perfil .container .guia-container .guia-container-info .guia-container-info-data{
+                padding: 0 5px 5px 5px;
+            }
+
+            .one-guia-otro-perfil .container .guia-container .guia-container-info .guia-container-info-stats{
+                border-top-style: double;
+                padding: 5px;
+            }
+
+            .one-guia-otro-perfil .container .guia-container .guia-container-info .guia-container-info-categorias{
+                border-top-style: double;
+                padding: 5px;
+            }
+
+        .one-guia-otro-perfil .container .guia-container .guia-container-resena{
+            border-top-style: double;
+        }
+
+            .one-guia-otro-perfil .container .guia-container .guia-container-resena h1{
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+
+            .modal-form{
+                margin-bottom: 5px;
+            }
+
+    .one-guia-otro-perfil .container .pdf-container{
+        order: 2;
+    }
+
+    .one-guia-otro-perfil .container .comments-container{
+        order: 3;
+    }
+
+    .one-guia-otro-perfil .container .footer{
+        order: 4;
+    }
+
+        .one-guia-otro-perfil .container .footer button{
+            margin-bottom: 5px;
+            width: 50%;
+        }
+
+@media (min-width: 1100px){
+    .one-guia-perfil .container .guia-container .guia-container-info{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+        .one-guia-perfil .container .guia-container .guia-container-info .guia-container-info-data{
+            padding: 0;
+            text-align: start;
+        }
+
+        .one-guia-perfil .container .guia-container .guia-container-info .guia-container-info-stats{
+            border-top-style: none;
+            padding: 0;
+            text-align: start;
+        }
+
+        .one-guia-perfil .container .guia-container .guia-container-info .guia-container-info-categorias{
+            border-top-style: none;
+            padding: 0;
+            text-align: start;
+        }
+}

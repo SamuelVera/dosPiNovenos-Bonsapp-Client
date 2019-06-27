@@ -1,0 +1,144 @@
+.cuerpo-perfil-otro-user{
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado-perfil{
+    order: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-style: double;
+}
+
+    .info-perfil{
+        order: 1;
+        text-align: start;
+        padding: 10px 0 10px 10px;
+    }
+
+    .rango-perfil{
+        order: 2;
+        text-align: end;
+        padding: 10px 0 10px 10px;
+    }
+
+.cuerpo-perfil{
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+    .bonsais-otro-perfil{
+        order: 1;
+        border-style: double;
+        margin-right: 5px;
+    }
+
+    .one-bonsai-otro-perfil{
+        order: 1;
+        border-style: double;
+    }
+
+    .guias-otro-perfil{
+        order: 2;
+        border-style: double;
+        justify-content: center;
+    }
+
+        .guias-otro-perfil .guias-container .guias-item .guias-item-content{
+            margin-left: 10px;
+        }
+
+    .one-guia-otro-perfil{
+        order: 2;
+        border-style: double;
+        width: 98%;
+        font-size: 0.85em;
+    }
+
+.bottom-perfil{
+    order: 3;
+    margin-top: 5px;
+}
+
+.bonsais-otro-perfil-h2{
+    padding: 10px;
+}
+
+.guias-otro-perfil-h2{
+    padding: 10px;
+}
+
+@media (max-width: 680px){
+
+    .encabezado-perfil h2{
+        font-size: 1.2rem;
+    }
+
+    .cuerpo-perfil{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px){
+
+    .bonsais-otro-perfil{
+        width: 98%;
+        margin: 0;
+    }
+
+    .guias-otro-perfil{
+        width: 99%;
+        margin: 0;
+    }
+
+        .guias-otro-perfil .guias-container{
+            margin: 5px 5px 0 5px;
+        }
+
+    .cuerpo-perfil .one-guia-otro-perfil{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 650px){
+
+    .encabezado-perfil{
+        display: flex;
+        flex-direction: column;
+    }
+
+        .info-perfil{
+            text-align: center;
+        }
+
+        .rango-perfil{
+            border-top-style: double;
+            text-align: center;
+        }
+}
+
+@media (max-width: 850px){
+    .encabezado-perfil{
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 800px){
+    .guias-container .guias-item .guias-item-footer .guias-item-categorias{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+@media (min-width: 900px){
+    .guias-container .guias-item .guias-item-footer .guias-item-categorias{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}

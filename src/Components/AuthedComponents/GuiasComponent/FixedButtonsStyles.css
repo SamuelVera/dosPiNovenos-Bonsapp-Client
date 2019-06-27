@@ -1,0 +1,320 @@
+*{padding:0;margin:0;}
+
+@keyframes scale-in {
+    from {transform: scale(0);opacity: 0;}
+    to {transform: scale(1);opacity: 1;}
+}
+
+@keyframes rotate-in {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotate-out {
+    from {transform: rotate(360deg);}
+    to {transform: rotate(0deg);}
+}
+
+.fixedBottomRightButton{
+	position:fixed;
+	width:50px;
+	height:50px;
+	right:20px;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.fixedBottomAdd{
+	bottom: 20px;
+	background-color:#0C9;
+}
+
+.fixedBottomDeploy{
+	bottom: 80px;
+	background-color:rgb(204, 58, 0);
+}
+
+.fixedBottomRightButton:hover{
+    cursor: pointer;
+}
+
+button.fixedBottomRightButton + div.label-container {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+button.fixedBottomRightButton + div.label-container-up {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+  
+button.fixedBottomRightButton:hover + div.label-container{
+    visibility: visible;
+    opacity: 1;
+}
+
+button.fixedBottomRightButton:hover + div.label-container-up{
+    visibility: visible;
+    opacity: 1;
+}
+
+.float{
+    margin-top:22px;
+    font-size: 1.5em;
+}
+
+.label-container{
+	position:fixed;
+	bottom:23px;
+	right:75px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-container-up{
+	position:fixed;
+	bottom:83px;
+	right:75px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-text{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+.label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#333;
+	opacity:0.5;
+}
+
+ul{
+	position:fixed;
+	right:40px;
+	padding-bottom:20px;
+	bottom:130px;
+	z-index:100;
+}
+
+ul li{
+	list-style:none;
+	margin-bottom:10px;
+}
+
+ul li i{
+	background-color:#F33;
+	color:#FFF;
+	border-radius:50px;
+	box-shadow: 2px 2px 3px #999;
+	width:40px;
+	height:40px;
+	display: flex;
+	flex-direction: column;
+	font-size: 1em;
+}
+
+li:hover{
+	cursor: pointer;
+}
+
+.items{
+	justify-items: center;
+}
+
+ul:hover{
+	visibility:visible!important;
+	opacity:1!important;
+}
+
+button#menu-share + ul{
+	visibility: hidden;
+}
+  
+button#menu-share:hover + ul{
+	visibility: visible;
+	animation: scale-in 0.5s;
+}
+  
+button#menu-share i{
+	animation: rotate-in 0.5s;
+}
+  
+button#menu-share:hover > i{
+	animation: rotate-out 0.5s;
+}
+  
+.commonButton{
+    cursor: pointer;
+	color: #fff;    
+	background: rgba(4, 122, 49, 0.548);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+	border-radius: 3px;
+	margin-right: 0.6em;
+	margin-left: 0.6em;
+}
+
+
+@media (min-width:700px){
+	.fixedBottomRightButton{
+		position:fixed;
+		width:50px;
+		height:50px;
+		right:40px;
+		color:#FFF;
+		border-radius:50px;
+		text-align:center;
+		box-shadow: 2px 2px 3px #999;
+	}
+	
+	.fixedBottomAdd{
+		bottom: 40px;
+		background-color:#0C9;
+	}
+	
+	.fixedBottomDeploy{
+		bottom: 100px;
+		background-color:rgb(204, 58, 0);
+	}
+	
+	.fixedBottomRightButton:hover{
+		cursor: pointer;
+	}
+	
+	button.fixedBottomRightButton + div.label-container {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s, opacity 0.5s ease;
+	}
+	
+	button.fixedBottomRightButton + div.label-container-up {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s, opacity 0.5s ease;
+	}
+	  
+	button.fixedBottomRightButton:hover + div.label-container{
+		visibility: visible;
+		opacity: 1;
+	}
+	
+	button.fixedBottomRightButton:hover + div.label-container-up{
+		visibility: visible;
+		opacity: 1;
+	}
+	
+	.float{
+		margin-top:22px;
+		font-size: 1.5em;
+	}
+	
+	.label-container{
+		position:fixed;
+		bottom:48px;
+		right:105px;
+		display:table;
+		visibility: hidden;
+	}
+	
+	.label-container-up{
+		position:fixed;
+		bottom:108px;
+		right:105px;
+		display:table;
+		visibility: hidden;
+	}
+	
+	.label-text{
+		color:#FFF;
+		background:rgba(51,51,51,0.5);
+		display:table-cell;
+		vertical-align:middle;
+		padding:10px;
+		border-radius:3px;
+	}
+	
+	.label-arrow{
+		display:table-cell;
+		vertical-align:middle;
+		color:#333;
+		opacity:0.5;
+	}
+	
+	ul{
+		position:fixed;
+		right:40px;
+		padding-bottom:20px;
+		bottom:130px;
+		z-index:100;
+	}
+	
+	ul li{
+		list-style:none;
+		margin-bottom:10px;
+	}
+	
+	ul li i{
+		background-color:#F33;
+		color:#FFF;
+		border-radius:50px;
+		box-shadow: 2px 2px 3px #999;
+		width:40px;
+		height:40px;
+		display: flex;
+		flex-direction: column;
+		font-size: 1em;
+	}
+	
+	li:hover{
+		cursor: pointer;
+	}
+	
+	.items{
+		justify-items: center;
+	}
+	
+	ul:hover{
+		visibility:visible!important;
+		opacity:1!important;
+	}
+	
+	button#menu-share + ul{
+		visibility: hidden;
+	}
+	  
+	button#menu-share:hover + ul{
+		visibility: visible;
+		animation: scale-in 0.5s;
+	}
+	  
+	button#menu-share i{
+		animation: rotate-in 0.5s;
+	}
+	  
+	button#menu-share:hover > i{
+		animation: rotate-out 0.5s;
+	}
+	  
+	.commonButton{
+		cursor: pointer;
+		color: #fff;    
+		background: rgba(4, 122, 49, 0.548);
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		margin-right: 0.6em;
+		margin-left: 0.6em;
+	}
+	
+}

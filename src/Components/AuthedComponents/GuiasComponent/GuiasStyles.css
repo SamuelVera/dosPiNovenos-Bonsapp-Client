@@ -1,0 +1,475 @@
+.modal-form{
+    color: black;
+}
+
+    .modal-form h1{
+        margin-top: 10px;
+    }
+
+    .modal-form form{
+        display: flex;
+        flex-direction: column;
+        border-style: double;
+        margin: 5px 10px 5px 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 15px;
+    }
+
+    .modal-form button{
+        width: 50%;
+        cursor: pointer;
+        color: #fff;    
+        background: rgba(4, 122, 49, 0.548);
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        margin-right: 0.6em;
+        margin-left: 0.6em;
+    }
+
+        .modal-form form div{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            align-self: center;
+        }
+
+            .modal-form form div label{
+                text-align: start;
+                font-size: 1rem;
+            }
+
+            .modal-form form button{
+                width: 55%;
+                align-self: center;
+            }
+
+.guias-container{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.guias-item{
+    display: flex;
+    flex-direction: column;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 1px 1px 5px 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+    .guias-item-content{
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        margin: 3px;
+        justify-content: space-evenly;
+    }
+
+        .guias-item-cont-guia{
+            order: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+        }
+
+        .guias-item-cont-idioma{
+            order: 2;
+            text-align: start;
+        }
+
+        .guias-item-cont-usuario{
+            order: 3;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .guias-item-button{
+            order: 4;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+            .guias-item-button #delete{
+                border-radius: 100px;
+                background: rgba(211, 14, 14, 0.849);
+                color: white;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .guias-item-button #delete:hover{
+                cursor: pointer;
+                background: white;
+                color: rgba(211, 14, 14, 0.849);
+            }
+    
+
+            .guias-item-button button{
+                font-size: 0.8rem;
+                padding: 3px;
+            }
+
+            .guias-item-button button:hover{
+                cursor: pointer;
+            }
+
+    .guias-item-footer{
+        order: 2;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+        .guias-item-categorias{
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-column-gap: 6px;
+        }
+
+        .guias-item-footer p{
+            font-size: 0.7rem;
+            color: white;
+        }
+
+.pretty-button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 5px;
+    border-radius: 50px;
+    margin-bottom: 3px;
+}  
+
+.pretty-button:hover {
+    background-color: #ddd;
+    color: rgb(192, 173, 173);
+}
+    
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+    
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.filtrar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-style: double;
+    border-color: white;
+    font-size: 1rem;
+}
+
+    .label-filtrar{
+        align-self: flex-start;
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .not-label-filtrar{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+        .filtrar-form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+            .filtrar-form-categorias{
+                width: 90%;
+                align-self: center;
+                margin-bottom: 5px;
+            }
+
+            .filtrar-form-idioma{
+                width: 90%;
+                align-self: center;
+                margin-bottom: 5px;
+            }
+
+            .form-button{
+                width: 40%;
+                align-self: center;
+            }
+
+        .filtrar-quitar-filtro{
+            margin-top: 5px;
+            width: 40%;
+            align-self: center;
+        }
+
+.commonButton{
+    cursor: pointer;
+    color: #fff;    
+    background: rgba(4, 122, 49, 0.548);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+@media (min-width: 370px){
+    .guias-item-categorias{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-column-gap: 6px;
+    }
+}
+
+@media (min-width: 400px){
+    .guias-item-button button{
+        font-size: 0.9rem;
+        padding: 3px;
+    }
+
+    .guias-item-footer p{
+        font-size: 0.8rem;
+        color: white;
+    }
+
+    .guias-item-content{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px){
+    .guias-item-button{
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 500px){
+
+    .filtrar-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-top-style: double;
+        border-color: white;
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    .filtrar-form-categorias{
+        width: 90%;
+        align-self: center;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    .label-filtrar{
+        margin-top: 10px;
+    }
+
+}
+
+@media (min-width: 600px){
+    .filtrar-form button{
+        font-size: 1rem;
+    }
+
+    .guias-item-footer{
+        align-self: flex-start;
+    }
+
+    .guias-item-categorias{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-column-gap: 6px;
+    }
+
+    .guias-item-categorias p{
+        margin-left: 10px;
+    }
+
+    .guias-item-button{
+        order: 4;
+        margin-right: 0;
+        flex-direction: row;
+    }
+
+    .guias-item-footer-button{
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 600px){
+    .guias-item-button{
+        width: 10%;
+    }
+}
+
+@media (min-width: 800px){
+
+    .guias-item{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .guias-item-footer{
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+    }
+
+        .guias-item-footer p{
+            text-align: start;
+            margin-left: 0;
+        }
+    
+    .guias-item-categorias{
+        grid-template-columns: auto auto auto;
+        grid-column-gap: 10px;
+    }
+
+        .guias-item-categorias p{
+            margin-left: 0;
+        }
+
+    .not-label-filtrar{
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+
+        .filtrar-form{
+            display: grid;
+            grid-area: "form";
+            grid-template-areas:
+            "cate idio"
+            "aaaa boto";
+            grid-template-columns: auto auto;
+            align-items: center;
+        }
+
+        .filtrar-form-categorias{
+            grid-area: "cate";
+            width: 90%;
+        }
+
+        .filtrar-form-idioma{
+            margin-top: 10px;
+            grid-area: "idio";
+            width: 90%;
+        }
+
+        .form-button{
+            grid-area: "aaaa";
+            align-self: center;
+            width: 90%;
+            margin: 0;
+        }
+
+    .filtrar-quitar-filtro{
+        grid-area: "boto";
+        margin: 0 0 0 0;
+        width: 90%;
+    }
+
+    .guias-item-button button{
+        font-size: 1.2rem;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .guias-item-button #delete{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+}
+
+@media (min-width: 900px){
+    .guias-item{
+        justify-content: space-evenly;
+    }
+
+    .guias-item h4{
+        margin-right: 10px;
+    }
+
+    .guias-item-content{
+        width: 55%;
+    }
+
+    .guias-item-footer{
+        width: 20%;
+        margin-right: 10%;
+    }
+
+    .guias-item-footer-button button{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 900px){
+    .guias-item-cont-guia{
+        width: 25%;
+    }
+
+    .guias-item-cont-idioma{
+        width: 15%;
+    }
+}
+
+@media (min-width: 1000px){
+    .guias-item h4{
+        font-size: 1.1rem;
+    }
+
+    .guias-item button{
+        font-size: 1.1rem;
+    }
+
+    .guias-item p{
+        font-size: 0.9rem;
+    }
+
+    .label-filtrar{
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1200px){
+    .guias-item-footer{
+        margin-right: 5%;
+    }
+
+    .guias-item h4{
+        font-size: 1.2rem;
+    }
+
+    .guias-item button{
+        font-size: 1.2rem;
+    }
+
+    .guias-item p{
+        font-size: 1rem;
+    }
+}

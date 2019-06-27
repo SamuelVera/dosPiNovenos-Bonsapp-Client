@@ -1,0 +1,104 @@
+.bonsai-otro-container{
+    display: flex;
+    flex-direction: column;
+}
+
+    .bonsai-otro-info{
+        display: flex;
+        flex-direction: column;
+        order: 1;
+        font-size: 1rem;
+    }
+
+        .bonsai-otro-info-1{
+            order: 1;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .bonsai-otro-info-2{
+            order: 2;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-style: double;
+        }
+
+        .bonsai-otro-info-3{
+            order: 3;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-style: double;
+        }
+
+        .bonsai-otro-info-4{
+            order: 4;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-top-style: double;
+        }
+
+    .bonsai-otro-valoracion{
+        display: flex;
+        flex-direction: column;
+        order: 2;
+        padding-top: 5px;
+        border-top-style: double;
+    }
+
+        .valorar-container{
+            font-size: 1rem;
+        }
+
+            .valorar-start .star-ratings .star-container{
+                width: 35px;
+                padding-right: 10px;
+            }
+
+    .bonsai-otro-historial{
+        display: flex;
+        flex-direction: column;
+        order: 3;
+        padding-top: 5px;
+        border-top-style: double;
+    }
+
+        .bonsai-otro-historial h4{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .historial-items{
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+
+    .bonsai-otro-return{
+        order: 4;
+        padding-top: 5px;
+        border-top-style: double;
+        padding-bottom: 5px;
+    }
+
+@media (min-width: 550px){
+    .historial-items{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .historial-item img{
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (min-width: 680px){
+    .historial-items{
+        grid-template-columns: auto auto;
+    }
+
+    .historial-item img{
+        width: 100px;
+        height: 100px;
+    }
+}

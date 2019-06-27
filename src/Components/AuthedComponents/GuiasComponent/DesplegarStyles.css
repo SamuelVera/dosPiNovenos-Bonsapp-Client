@@ -1,0 +1,21 @@
+.deploy-text{
+    color: white;
+}
+
+.body{
+    margin-bottom: 45px;
+    align-self: center;
+    order: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+    font-size: 1.2em;
+    color: rgb(213, 250, 191);
+    background: rgb(7, 41, 4);
+    border-style: solid;
+    border-color: rgb(26, 117, 6);
+    border-radius: 10px;
+}
+
+.bottom{
+    margin-bottom: 40px;
+    color: black
+}
