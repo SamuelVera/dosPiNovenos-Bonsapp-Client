@@ -8,6 +8,7 @@ import { FirebaseContext } from '../../../Firebase/index'
 export default function OneBonsaiComponent(props){
 
     const [updating, setUpdating] = useState(false)
+    const [uploadingBonsai, setUploadingBonsai] = useState(false)
 
     return(<div>
         {
@@ -50,7 +51,8 @@ export default function OneBonsaiComponent(props){
         </div>)
         ||(updating && props.bonsai.id &&
             <UpdateBonsaiForm bonsai={props.bonsai} setUpdating={setUpdating} 
-            control={props.control} setControl={props.setControl}/>)}
+            control={props.control} setControl={props.setControl} uploadingBonsai={uploadingBonsai}
+            setUploadingBonsai={setUploadingBonsai}/>)}
         {!updating && <GoBackFixedButtonComponent goBackAction={props.setViendoUno} value={false}/>}
     </div>)
 }

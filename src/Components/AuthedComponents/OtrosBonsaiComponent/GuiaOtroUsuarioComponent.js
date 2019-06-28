@@ -19,7 +19,9 @@ export default function GuiaOtroUsuarioComponent(props){
     const [resena, setResena] = useState({})
     const [valoracion, setValoracion] = useState(0)
     const [control, setControl] = useState(false)
-    const [controlComentarios, setControlComentarios] = useState()
+    const [controlComentarios, setControlComentarios] = useState(false)
+    const [uploadingComentario, setUploadingComentario] = useState(false)
+    const [uploadingResena, setUploadingResena] = useState(false)
 
     useEffect(() => {
         let isSub = true
@@ -136,7 +138,8 @@ export default function GuiaOtroUsuarioComponent(props){
                             control={control}/>
                             <AgregarResenaComponent status={resenaStatus} title={resenaTitle}
                             idGuia={props.idGuia} idusuario={props.user.id} resena={resena}
-                            control={control} setControl={setControl}/>
+                            control={control} setControl={setControl} uploadingResena={uploadingResena}
+                            setUploadingResena={setUploadingResena}/>
                         </div>
                     </div>)
                 }
@@ -156,7 +159,8 @@ export default function GuiaOtroUsuarioComponent(props){
             <div className="comments-container"> {/* Sección de Comentarios */}
                 <ComentariosComponent idGuia={props.idGuia} controlComentarios={controlComentarios}/>
                 <AgregarComentarioComponent setControlComentarios={setControlComentarios}
-                controlComentarios={controlComentarios} idGuia={props.idGuia} idusuario={props.user.id}/>
+                controlComentarios={controlComentarios} idGuia={props.idGuia} idusuario={props.user.id}
+                uploadingComentario={uploadingComentario} setUploadingComentario={setUploadingComentario}/>
             </div>
             <div className="footer">
                 <button className="commonButton" onClick={() => {

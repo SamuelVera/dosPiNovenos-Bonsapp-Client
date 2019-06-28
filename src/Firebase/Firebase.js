@@ -2,13 +2,13 @@ import app from 'firebase/app'
 import 'firebase/storage'
 
 const config = {
-    apiKey: 'AIzaSyA9LP4E4LXV7kx37EJwQrK8uRHKuZt3eBQ',
-    authDomain: 'bonsapp-igsf.firebaseapp.com',
-    databaseURL: 'https://bonsapp-igsf.firebaseio.com',
-    projectId: 'bonsapp-igsf',
-    storageBucket: 'bonsapp-igsf.appspot.com',
+    apiKey: process.env.REACT_APP_apiKey,
+    //authDomain: 'bonsapp-igsf.firebaseapp.com',
+    //databaseURL: 'https://bonsapp-igsf.firebaseio.com',
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
     messagingSenderId: 49485402387,
-    adppId: '1:49485402387:web:61233e83d606a683'
+    adppId: process.env.REACT_APP_appId
 }
 
 class Firebase{

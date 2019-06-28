@@ -9,6 +9,7 @@ export default function AgregarResenaComponent(props){
     const [modalVisible, setModalVisible] = useState(false)
 
     const handleSubmit = (e) => {
+        props.setUploadingResena(true)
         if(props.status === 3){ //No ha reseñado esta guía
             axios.post('/add-resena',{
                 idguia: props.idGuia,
@@ -24,6 +25,7 @@ export default function AgregarResenaComponent(props){
                     props.setControl(!props.control)
                     setModalVisible(false)
                 }
+                props.setUploadingResena(false)
             })
             .catch(err => {
                 throw err
@@ -45,6 +47,7 @@ export default function AgregarResenaComponent(props){
                     props.setControl(!props.control)
                     setModalVisible(false)
                 }
+                props.setUploadingResena(false)
             })
             .catch(err => {
                 throw err
@@ -90,7 +93,11 @@ export default function AgregarResenaComponent(props){
             onClickAway={() => {closeModal()}}
         > 
             <div>
-                <h1>{props.title}</h1>
+                <h2>{props.title}</h2>
+                {
+                    props.uploadingResena &&
+                    <h2>Subiendo Resena...</h2>
+                }
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     handleSubmit(e)
@@ -105,7 +112,9 @@ export default function AgregarResenaComponent(props){
                         <input name='puntuacion' type='number' min={0} max={10}
                         defaultValue={props.resena.puntuacion}/>
                     </div>
-                    <button>Publicar</button>
+                    {!props.uploadingResena &&
+                        <button>Publicar</button>
+                    }
                 </form>
             </div>
             <button onClick={() => {

@@ -16,7 +16,6 @@ export default function PerfiYucaComponent(props){
     const [imagenes, setImagenes] = useState([])
     const [user, setUser] = useState({})
 
-    const [viendoUno, setViendoUno] = useState(false)
     const [idBonsaiViendo,setIdBonsaiViendo] = useState(0)
     const [bonsaiViendo, setBonsaiViendo] = useState({
         especie: {},
@@ -26,11 +25,6 @@ export default function PerfiYucaComponent(props){
         fechaagregado: new Date(),
     })
     
-    const [control, setControl] = useState(true)
-    const [controlOne, setControlOne] = useState(true)
-    const [controlPais, setControlPais] = useState(true)
-    const [updating, setUpdating] = useState(false)
-    
     const [rango, setRango] = useState('')
     const [rangoId, setRangoId] = useState(0)
     const [reputacion, setReputacion] = useState(0)
@@ -38,6 +32,15 @@ export default function PerfiYucaComponent(props){
     const [pais, setPais] = useState('')
 
     const [fetching, setFetching] = useState(true)
+    const [control, setControl] = useState(true)
+    const [controlOne, setControlOne] = useState(true)
+    const [controlPais, setControlPais] = useState(true)
+    const [updating, setUpdating] = useState(false)
+    const [viendoUno, setViendoUno] = useState(false)
+    const [comprobandoAscenso, setComprobandoAscenso] = useState(false)
+    const [deletingBonsai, setDeletingBonsai] = useState(false)
+    const [idBonsaiDeleting, setIdBonsaiDeleting] = useState(0)
+    const [uploadingUser, setUploadingUser] = useState(false)
 
     useEffect(() => {
         if(!viendoUno){
@@ -208,6 +211,8 @@ export default function PerfiYucaComponent(props){
                         <button onClick={onClose}>¡¡NO!!</button>
                         <button
                             onClick={() => {
+                                setDeletingBonsai(true)
+                                setIdBonsaiDeleting(id)
                                 axios.post('/delete-one-bonsai',{
                                     idbonsai: id,
                                     iduser: props.user.id
@@ -215,6 +220,8 @@ export default function PerfiYucaComponent(props){
                                 .then(res => {
                                     alert(res.data.msg)
                                     setControl(!control)
+                                    setIdBonsaiDeleting(0)
+                                    setDeletingBonsai(false)
                                 })
                                 .catch(err => {
                                     throw err
@@ -232,6 +239,7 @@ export default function PerfiYucaComponent(props){
     }
 
     const handleAscenso = () => {
+        setComprobandoAscenso(true)
         axios.post('/check-ascender-rango',{
             rangoActual: rangoId,
             reputacion,
@@ -244,6 +252,7 @@ export default function PerfiYucaComponent(props){
                 setRangoId(data.id)
                 setRango(data.nombre)
             }
+            setComprobandoAscenso(false)
         })
         .catch(err => {
             throw err
@@ -251,6 +260,7 @@ export default function PerfiYucaComponent(props){
     }
 
     const handleUserUpdate = (user) => {
+        setUploadingUser(true)
         axios.post('/update-user',{
             id: props.user.id,
             user
@@ -267,6 +277,7 @@ export default function PerfiYucaComponent(props){
                 setUser(aux)
                 localStorage.setItem('user', aux)
             }
+            setUploadingUser(false)
         })
     }
 
@@ -290,28 +301,37 @@ export default function PerfiYucaComponent(props){
                                 <h2>Pais: {pais}</h2>
                             </div>
                             <div className="perfil-muchos-bonsais-encabezado-rango">
-                                <h2>Rango: {rango}</h2>
+                                <h2>Rango: {!comprobandoAscenso && rango}</h2>
                                 <h2>Reputacion: {reputacion}</h2>
-                                {rangoId !== 0 && 
+                                {rangoId !== 0 && !comprobandoAscenso && rangoId !== 3 &&
                                 <button className='commonButton' onClick={() => {
                                     handleAscenso()
                                 }}>Ascender de rango!</button>}
+                                {
+                                    rangoId === 3 &&
+                                    <h2>Tienes el Maximo Rango!</h2>
+                                }
+                                {
+                                    comprobandoAscenso && rangoId !== 3 &&
+                                    <h2>Comprobando Ascenso...</h2>
+                                }
                             </div>
                         </div>
                         { !fetching && <ManyBonsaisComponent 
                         handleEliminar={handleEliminar} imagenes={imagenes}
-                        setIdBonsaiViendo={setIdBonsaiViendo} bonsais={bonsais}/>}
+                        setIdBonsaiViendo={setIdBonsaiViendo} bonsais={bonsais}
+                        deletingBonsai={deletingBonsai} idBonsaiDeleting={idBonsaiDeleting}/>}
                         <div>
-                        <button className='fixedBottomRightButton fixedBottomAdd' 
-                            onClick={() => 
-                                props.setBonsaiForm(true)}>
-                                <i className="fa fa-plus float">+</i>
-                        </button>
-                        <div className="label-container">
-                            <div className="label-text">Agregar Bonsai</div>
-                                <i className="fa fa-play label-arrow"></i>
+                            <button className='fixedBottomRightButton fixedBottomAdd' 
+                                onClick={() => 
+                                    props.setBonsaiForm(true)}>
+                                    <i className="fa fa-plus float">+</i>
+                            </button>
+                            <div className="label-container">
+                                <div className="label-text">Agregar Bonsai</div>
+                                    <i className="fa fa-play label-arrow"></i>
+                            </div>
                         </div>
-                    </div>
                     </div>)
                     ||
                     (viendoUno && 
@@ -327,7 +347,7 @@ export default function PerfiYucaComponent(props){
                 }
             </div>)
             ||(updating && <UpdateUserDatosComponent user={props.user} handleUserUpdate={handleUserUpdate}
-            pais={pais} setUpdating={setUpdating}/>)
+            pais={pais} setUpdating={setUpdating} uploadingUser={uploadingUser}/>)
         }
     </div>)
 }

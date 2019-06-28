@@ -23,7 +23,6 @@ export default function PerfilOtroUsuarioComponent(props){
     const [bonsaiViendo, setBonsaiViendo] = useState({})
     const [idBonsaiViendo,setIdBonsaiViendo] = useState(0)
     const [viendoUnBonsai, setViendoUnBonsai] = useState(false)
-
     const [idGuiaViendo,setIdGuiaViendo] = useState(0)
     const [viendoMuchasGuias, setViendoMuchasGuias] = useState(true)
 

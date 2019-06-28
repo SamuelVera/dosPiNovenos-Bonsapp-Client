@@ -14,6 +14,7 @@ export default function UpdateBonsaiFormComponent(props){
         }else if(!e.target.tipoforma){
             alert('Elige el tipo de forma de tu bonsai')
         }else{
+            props.setUploadingBosai(true)
             axios.post('/update-bonsai',{
                 id: props.bonsai.id,
                 apodo: e.target.apodo.value,
@@ -29,6 +30,7 @@ export default function UpdateBonsaiFormComponent(props){
                     props.setUpdating(false)
                     props.setControl(!props.control)
                 }
+                props.setUploadingBosai(false)
             })
             .catch(err => {
                 throw err
@@ -38,6 +40,10 @@ export default function UpdateBonsaiFormComponent(props){
 
     return(    
     <div className='authed-form-div-ext'>
+        {
+            props.updatingBonsai &&
+            <h2>Actualizando Bonsai...</h2>
+        }
         <form className='authed-form' 
             onSubmit={(e) => {
                 e.preventDefault()

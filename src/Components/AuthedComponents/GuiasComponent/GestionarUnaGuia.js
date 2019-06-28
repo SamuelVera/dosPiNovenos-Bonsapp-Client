@@ -3,16 +3,13 @@ import PdfViewer from '../../PdfViewer/PdfwViewer'
 import UpdateGuiaComponent from './UpdateGuiaComponent'
 import CometariosComponent from './ComentariosComponent'
 import VerResenasComponent from './VerResenasComponent'
+import AgregarComentarioComponent from './AgregarComentarioComponent'
 import axios from 'axios'
 import GoBackFixedButtonComponent from '../GoBackFixedButtonComponent'
 
 import './GestionarUnaGuiaStyles.css'
 
 export default function GestionarUnaGuia(props){
-
-    const [fetching, setFetching] = useState(true)
-    const [fetchingPDF, setFetchingPDF] = useState(true)
-    const [loadingPDF, setLoadingPDF] = useState(false)
 
     const [guia, setGuia] = useState({})
     const [pdfLink, setPdfLink] = useState('')
@@ -25,6 +22,12 @@ export default function GestionarUnaGuia(props){
     const [verResenasNegativas, setVerResenasNegativas] = useState(false)
     const [updating, setUpdating] = useState(false)
     const [control, setControl] = useState(true)
+    const [fetching, setFetching] = useState(true)
+    const [fetchingPDF, setFetchingPDF] = useState(true)
+    const [loadingPDF, setLoadingPDF] = useState(false)
+    const [controlComentarios, setControlComentarios] = useState(false)
+    const [uploadingComentario, setUploadingComentario] = useState(false)
+    const [uploadingGuia, setUploadingGuia] = useState(false)
 
     useEffect(() => {
         let isSub = true
@@ -100,6 +103,7 @@ export default function GestionarUnaGuia(props){
     },[])
 
     const handleSubmit = (e) =>  {
+        setUploadingGuia(true)
         axios.post('/update-guia',{
             id: guia.id,
             idusuario: props.user.id,
@@ -112,6 +116,7 @@ export default function GestionarUnaGuia(props){
                 setUpdating(false)
             } 
             alert(msg)
+            setUploadingGuia(false)
         })
         .catch(err => {
             throw err
@@ -179,7 +184,7 @@ export default function GestionarUnaGuia(props){
                 {
                     (fetching &&
                     <div className="gestion-guia-container-info">
-                        <h1>CARGANDO...</h1>
+                        <h1>Cargando Guia...</h1>
                     </div>)
                     ||
                     (!fetching &&
@@ -239,7 +244,11 @@ export default function GestionarUnaGuia(props){
                     ||
                     (verComentarios &&
                     <div className="gestion-guia-opinion-comentarios">
-                        <CometariosComponent class={"gestion-comments-container"} idGuia={props.idGuia}/>
+                        <CometariosComponent class={"gestion-comments-container"} idGuia={props.idGuia}
+                        controlComentarios={controlComentarios}/>
+                        <AgregarComentarioComponent setControlComentarios={setControlComentarios}
+                        controlComentarios={controlComentarios} idGuia={props.idGuia} idusuario={props.user.id}
+                        uploadingComentario={uploadingComentario} setUploadingComentario={setUploadingComentario}/>
                         <button className="commonButton" onClick={() => {
                             setVerComentarios(!verComentarios)
                         }}>Ocultar Comentarios</button>
@@ -265,13 +274,14 @@ export default function GestionarUnaGuia(props){
                     || (!verResenasPositivas && !verResenasNegativas && !fetchingPDF && !verComentarios 
                         && loadingPDF &&
                     <div className="gestion-guia-pdfcontainer">
-                        <h1>Cargando archivo...</h1>
+                        <h1>Subiendo Pdf...</h1>
                     </div>
                     )
                 }
             </div>)||
             (updating && 
-            <UpdateGuiaComponent handleSubmit={handleSubmit} guia={guia} setUpdating={setUpdating}/>)}
+            <UpdateGuiaComponent handleSubmit={handleSubmit} guia={guia} setUpdating={setUpdating}
+            uploadingGuia={uploadingGuia}/>)}
             {!updating && 
             <GoBackFixedButtonComponent goBackAction={props.setShowingMany} value={true}/>
             }

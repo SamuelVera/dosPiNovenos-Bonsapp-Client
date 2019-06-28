@@ -8,10 +8,13 @@ export default function HistorialFotosComponent(props){
 
     const [imagesUrls, setImagesUrls] = useState([])
     const [page, setPage] = useState(0)
-    const [subiendoImage, setSubiendoImagen] = useState(false)
-    const [control, setControl] = useState(false)
     const [pages, setPages] = useState(0)
+
+    const [uploadingImage, setUploadingImagen] = useState(false)
+    const [control, setControl] = useState(false)
     const [fetching, setFetching] = useState(true)
+    const [deletingImage, setDeletingImage] = useState(false)
+    const [indexDeletingImage, setIndexDeletingImage] = useState(0)
 
     useEffect(() => {
         let isSub = true
@@ -87,9 +90,9 @@ export default function HistorialFotosComponent(props){
     }
 
     const handlePost = (e) => {
-        setSubiendoImagen(true)
         let file = e.target.imageupload.files[0]
         let reference = `images/${props.idpropietario}/${props.idbonsai}/${file.name}`
+        setUploadingImagen(true)
         props.firebase.storageRef.root.child(reference).put(file)
         .then(snapshot => {
             let path=snapshot.metadata.fullPath
@@ -102,7 +105,7 @@ export default function HistorialFotosComponent(props){
                 const { msg } = res.data
                 alert(msg)
                 setControl(!control)
-                setSubiendoImagen(false)
+                setUploadingImagen(false)
             })
             .catch(err => {
                 throw err
@@ -110,7 +113,7 @@ export default function HistorialFotosComponent(props){
         })
     }
 
-    const handleDelete = (imagen) => {
+    const handleDelete = (imagen, index) => {
         confirmAlert({
             customUI: ({ onClose }) => {
                 return (
@@ -121,6 +124,8 @@ export default function HistorialFotosComponent(props){
                         <button onClick={onClose}>¡¡NO!!</button>
                         <button
                             onClick={() => {
+                                setDeletingImage(true)
+                                setIndexDeletingImage(index+1)
                                 axios.post('/delete-bonsai-image',{
                                     imagen,
                                     idbonsai: props.idbonsai
@@ -132,6 +137,8 @@ export default function HistorialFotosComponent(props){
                                         props.firebase.storageRef.root.child(imagen).delete()
                                     }
                                     alert(msg)
+                                    setDeletingImage(false)
+                                    setIndexDeletingImage(0)
                                 })
                                 .catch(err => {
                                     throw err
@@ -162,9 +169,12 @@ export default function HistorialFotosComponent(props){
                     {
                         return(<div key={i+1} className="perfil-one-bonsai-historial-item">
                             <img src={imagen.url} alt={`${imagen.fechasubida}`} height="120" width="120" />
+                            {(!deletingImage && indexDeletingImage !== (i+1) &&
                             <button onClick={() => {
-                                handleDelete(imagen.imagen)
-                            }}>&#215;</button>
+                                handleDelete(imagen.imagen, i)
+                            }}>&#215;</button>)||
+                            (deletingImage && indexDeletingImage === (i+1) &&
+                            <h2>Eliminando...</h2>)}
                         </div>)
                     }
                 )
@@ -183,7 +193,7 @@ export default function HistorialFotosComponent(props){
             <button className="next round pretty-button" onClick={() => { handleNextPage() }}>&#8250;</button>
         </div>}
         {
-            (!subiendoImage &&
+            (!uploadingImage &&
             <div className="perfil-one-bonsai-historial-subir-form">
                 <form onSubmit={(e) => {
                     e.preventDefault()
@@ -197,7 +207,7 @@ export default function HistorialFotosComponent(props){
                 
             </div>)
             ||
-            (subiendoImage &&
+            (uploadingImage &&
             <div className="perfil-one-bonsai-historial-subir-form">
                 <h4>Cargando Imagen...</h4>
             </div>    

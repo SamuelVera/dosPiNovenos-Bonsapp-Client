@@ -10,6 +10,7 @@ export default function AgregarComentarioComponent(props){
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        props.setUploadingComentario(true)
         axios.post('/add-comment',{
             idguia: props.idGuia,
             idusuario: props.idusuario,
@@ -23,6 +24,7 @@ export default function AgregarComentarioComponent(props){
                 closeModal()
                 props.setControlComentarios(!props.controlComentarios)
             }
+            props.setUploadingComentario(false)
         })
         .catch(err => {
             throw err
@@ -48,6 +50,10 @@ export default function AgregarComentarioComponent(props){
             onClickAway={() => {closeModal()}}>
             <div>
                 <h2>Comentar Guia</h2>
+                {
+                    props.uploadingComentario &&
+                    <h2>Subiendo Comentario....</h2>
+                }
                 <form onSubmit={(e) => {
                     handleSubmit(e)
                 }}>
@@ -56,9 +62,11 @@ export default function AgregarComentarioComponent(props){
                         <input type='text' placeholder='Escribe tu comentario...'
                         name='contenido' maxLength={120} requiredtxt='CAMPO VACIO!' required/>
                     </div>
-                    <button>
-                        Publicar
-                    </button>
+                    {!props.uploadingComentario &&
+                        <button>
+                            Publicar
+                        </button>
+                    }
                 </form>
                 <button onClick={() => {
                     closeModal()

@@ -12,12 +12,17 @@ import '../CustomModalStyles.css'
 
 export default function MisGuiasComponent(props){
 
-    const [addGuia, setAddGuia] = useState(false)
     const [misGuias, setMisGuias] = useState([])
     const [idMostrar, setIdMostrar] = useState(0)
+
+    const [uploadingPdf, setUploadingPdf] = useState(false)
+    const [uploadingGuia, setUploadingGuia] = useState(false)
     const [showingMany, setShowingMany] = useState(true)
     const [control, setControl] = useState(false)
     const [fetching, setFetching] = useState(true)
+    const [addGuia, setAddGuia] = useState(false)
+    const [deletingGuia, setDeletingGuia] = useState(false)
+    const [idDeletingGuia, setIdDeletingGuia] = useState(0)
 
     useEffect(() => {
         let isSub = true
@@ -83,6 +88,8 @@ export default function MisGuiasComponent(props){
                         <button onClick={onClose}>¡¡NO!!</button>
                         <button
                             onClick={() => {
+                                setDeletingGuia(true)
+                                setIdDeletingGuia(id)
                                 axios.post('/delete-guia',{
                                     idusuario: props.user.id,
                                     id
@@ -94,6 +101,8 @@ export default function MisGuiasComponent(props){
                                         setControl(!control)
                                     }
                                     alert(msg)
+                                    setDeletingGuia(false)
+                                    setIdDeletingGuia(0)
                                 })
                                 .catch(err => {
                                     throw err
@@ -128,7 +137,9 @@ export default function MisGuiasComponent(props){
                 <FirebaseContext.Consumer>
                     {
                         firebase => <AgregarGuia setAddGuia={setAddGuia} user={props.user} firebase={firebase}
-                        control={control} setControl={setControl}/>
+                        control={control} setControl={setControl} uploadingGuia={uploadingGuia} 
+                        setUploadingGuia={setUploadingGuia} uploadingPdf={uploadingPdf} setUploadingPdf={setUploadingPdf}
+                        />
                     }
                 </FirebaseContext.Consumer>
                 ) ||
@@ -136,7 +147,8 @@ export default function MisGuiasComponent(props){
                 <div>
                 <FirebaseContext.Consumer>{
                     firebase => <MostrarMuchasMisGuiasComponent guias={misGuias} setIdMostrar={setIdMostrar}
-                    setShowingMany={setShowingMany} handleDelete={handleDelete} firebase={firebase}/>
+                    setShowingMany={setShowingMany} handleDelete={handleDelete} firebase={firebase}
+                    deletingGuia={deletingGuia} idDeletingGuia={idDeletingGuia}/>
                 }</FirebaseContext.Consumer>
                     <div>
                         <button className='fixedBottomRightButton fixedBottomDeploy' 

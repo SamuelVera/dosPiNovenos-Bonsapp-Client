@@ -22,6 +22,12 @@ export default function ManyBonsaisComponent(props){
                             <img src={props.imagenes[index]} alt={`Bonsai ${index}`}/>)
                         }
                     </div>
+                    {
+                        props.deletingBonsai && props.idBonsaiDeleting === bonsai.id &&
+                        <div className="perfil-muchos-bonsais-deleting">
+                            <h2>Eliminando...</h2>
+                        </div>
+                    }
                 </div>
                 <div className="perfil-muchos-bonsais-buttons">
                     <button className='commonButton' onClick={() => {

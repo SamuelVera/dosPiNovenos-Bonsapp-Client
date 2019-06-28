@@ -39,11 +39,15 @@ function AgregarGuia(props) {
                 guia.categorias = aux
             }
 
+            props.setUploadingPdf(true)
+
             let reference = `pdfs/${guia.idusuario}/${guia.nombre}/${file.name}`
             props.firebase.storageRef.root.child(reference).put(file)
             .then((snapshot) => {
                 alert('Subida de archivo pdf exitosa')
                 guia.pdfpath = snapshot.metadata.fullPath
+                props.setUploadingPdf(false)
+                props.setUploadingGuia(true)
                 axios.post('/add-guia', guia)
                 .then(response => {
                     const {status, msg} = response.data
@@ -52,6 +56,7 @@ function AgregarGuia(props) {
                         props.setAddGuia(false)
                         props.setControl(!props.control)
                     }
+                    props.setUploadingGuia(false)
                 })
                 .catch(err => {
                     throw err
@@ -81,6 +86,12 @@ function AgregarGuia(props) {
 
     return(
         <div className='authed-form-div-ext'>
+            {
+                props.uploadingGuia &&
+                <div className="uploading-guia-text">
+                    <h3>Subiendo Guia...</h3>
+                </div>
+            }
             <form className='authed-form' onSubmit={(e) => {
                 e.preventDefault()
                 handleSubmit(e)
@@ -89,19 +100,27 @@ function AgregarGuia(props) {
                     <label className='authed-form-label'>Nombre de la Guia</label>
                     <input className='authed-form-input' placeholder='Nombre de la guia' type='text' name='nombre' required />
                 </div>
-                <div className="authed-form-div">
-                    <label className='authed-form-label'>Archivo PDF</label>
-                    <input className='authed-form-input'
-                    type='file' name='upload' required accept="application/pdf"/>
-                </div>
+                {
+                    (!props.uploadingPdf &&
+                    <div className="authed-form-div">
+                        <label className='authed-form-label'>Archivo PDF</label>
+                        <input className='authed-form-input'
+                        type='file' name='upload' required accept="application/pdf"/>
+                    </div>)||
+                    (props.uploadingPdf && 
+                    <div className="authen-form-div">
+                        <h3>Subiendo Pdf...</h3>
+                    </div>)
+                }
                 <div className="authed-form-div-select">
                     <CategoriasDropdown defaultValue={null} nameForm='categorias'/>
                 </div>
                 <div className="authed-form-div-select">
                     <IdiomaDropdown defaultValue={null} nameForm='ididioma'/>
                 </div>
-                <button className='commonButton authed-form-button' type='submit'>Agregar Guía</button>
-                
+                {!props.uploadingGuia &&
+                    <button className='commonButton authed-form-button' type='submit'>Agregar Guía</button>
+                }
             </form>
             <GoBackFixedButtonComponent goBackAction={props.setAddGuia} value={false}/>
         </div>

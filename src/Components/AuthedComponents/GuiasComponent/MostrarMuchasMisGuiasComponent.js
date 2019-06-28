@@ -21,13 +21,23 @@ function MostrarMuchasMisGuiasComponent(props){
                             <h4>{row.usuario.correo}</h4>
                         </div>
                         <div className="guias-item-button">
-                            <button className="commonButton" onClick={() => {
-                                props.setIdMostrar(row.id)
-                                props.setShowingMany(false)
-                            }}>Ver</button>
-                            <button id="delete" onClick={() => {
-                                props.handleDelete(row.id, row.nombre, props.firebase)
-                            }}>&#215;</button>
+                            {
+                                props.deletingGuia && props.IdDeletingGuia === row.id &&
+                                <h4>Eliminando...</h4>
+                            }
+                            {
+                                !props.deletingGuia && props.IdDeletingGuia !== row.id &&
+                                <button className="commonButton" onClick={() => {
+                                    props.setIdMostrar(row.id)
+                                    props.setShowingMany(false)
+                                }}>Ver</button>
+                            }
+                            {
+                                !props.deletingGuia && props.IdDeletingGuia !== row.id &&
+                                <button id="delete" onClick={() => {
+                                    props.handleDelete(row.id, row.nombre, props.firebase)
+                                }}>&#215;</button>
+                            }
                         </div>
                     </div>
                     <div className="guias-item-footer">

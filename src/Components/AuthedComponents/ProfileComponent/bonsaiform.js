@@ -23,8 +23,11 @@ function AddBonsai(props){
         }
     }
 
-    return(
-        <div className='authed-form-div-ext'>
+    return(<div className='authed-form-div-ext'>
+            {
+                props.uploadingBonsai && 
+                <h2>Subiendo Bonsai...</h2>
+            }
         <form className='authed-form' 
             onSubmit={(e) => {
                 e.preventDefault()
@@ -60,8 +63,8 @@ function AddBonsai(props){
                     } nameForm={'tipoforma'} />
                 </div>
             </div>
-            <button className='commonButton special'
-            >Agregar</button>
+            {!props.uploadingBonsai && <button className='commonButton special'
+            >Agregar</button>}
         </form>
         <GoBackFixedButtonComponent goBackAction={props.setBonsaiForm} value={false}/>
     </div>

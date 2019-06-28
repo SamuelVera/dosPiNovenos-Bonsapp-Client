@@ -19,6 +19,10 @@ export default function UpdateUserDatosComponent(props){
     }
 
     return(<div className="authed-form-div-ext">
+        {
+            props.uploadingUser && 
+            <h2>Actualizando Datos...</h2>
+        }
         <form className="authed-form"
             onSubmit={(e) => {
                 e.preventDefault()

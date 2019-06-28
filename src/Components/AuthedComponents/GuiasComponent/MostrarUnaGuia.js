@@ -11,16 +11,19 @@ import './MostrarUnaGuiaStyles.css'
 
 function MostrarUnaGuia(props){
 
-    const [fetchingPDF, setFetchingPDF] = useState(true)
-    const [fetchingGuia, setFetchingGuia] = useState(true)
     const [guia, setGuia] = useState({})
     const [pdfLink, setPdfLink] = useState('')
     const [resenaTitle, setResenaTitle] = useState('')
     const [resenaStatus, setResenaStatus] = useState(0)
     const [resena, setResena] = useState({})
     const [valoracion, setValoracion] = useState(0)
+
+    const [fetchingPDF, setFetchingPDF] = useState(true)
+    const [fetchingGuia, setFetchingGuia] = useState(true)
     const [control, setControl] = useState(false)
-    const [controlComentarios, setControlComentarios] = useState()
+    const [controlComentarios, setControlComentarios] = useState(false)
+    const [uploadingComentario, setUploadingComentario] = useState(false)
+    const [uploadingResena, setUploadingResena] = useState(false)
 
     useEffect(() => {
         let isSub = true
@@ -154,7 +157,8 @@ function MostrarUnaGuia(props){
                         control={control}/>
                         <AgregarResenaComponent status={resenaStatus} title={resenaTitle}
                         idGuia={props.idGuia} idusuario={props.user.id} resena={resena}
-                        control={control} setControl={setControl}/>
+                        control={control} setControl={setControl} uploadingResena={uploadingResena}
+                        setUploadingResena={setUploadingResena}/>
                     </div>
                 </div>
             </div>
@@ -165,7 +169,8 @@ function MostrarUnaGuia(props){
                 <div className="comments-container-2">
                     <ComentariosComponent class={"a"} idGuia={props.idGuia} controlComentarios={controlComentarios}/>
                     <AgregarComentarioComponent setControlComentarios={setControlComentarios}
-                    controlComentarios={controlComentarios} idGuia={props.idGuia} idusuario={props.user.id}/>
+                    controlComentarios={controlComentarios} idGuia={props.idGuia} idusuario={props.user.id}
+                    uploadingComentario={uploadingComentario} setUploadingComentario={setUploadingComentario}/>
                 </div>
             </div>
             <GoBackFixedButtonComponent goBackAction={props.setShowingMany} value={true}/>

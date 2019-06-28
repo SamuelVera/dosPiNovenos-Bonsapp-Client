@@ -20,6 +20,10 @@ export default function UpdateGuiaComponent(props){
 
     return(
         <div className='authed-form-div-ext'>
+            {
+                props.uploadingGuia &&
+                <h2>Actualizando guia...</h2>
+            }
             <form className='authed-form' onSubmit={(e) => {
                 e.preventDefault()
                 handleSubmit(e)

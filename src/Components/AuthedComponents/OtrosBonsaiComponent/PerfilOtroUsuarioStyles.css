@@ -51,7 +51,12 @@
 
         .guias-otro-perfil .guias-container .guias-item .guias-item-content{
             margin-left: 10px;
+            font-size: 0.5rem;
         }
+
+            .guias-otro-perfil .guias-container .guias-item .guias-item-content h4{
+                font-size: 1rem;
+            }
 
     .one-guia-otro-perfil{
         order: 2;

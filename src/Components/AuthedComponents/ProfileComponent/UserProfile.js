@@ -8,8 +8,10 @@ import './UserProfile.css'
 function UserProfile(props) {
 
     const [bonsaiForm, setBonsaiForm] = useState(false)
+    const [uploadingBonsai, setUploadingBonsai] = useState(false)
 
     const addBonsai = (dataBonsai) => {
+        setUploadingBonsai(true)
         axios.post('/add-bonsai',{
             dataBonsai,
             userId: props.user.id
@@ -20,6 +22,7 @@ function UserProfile(props) {
             if(status === 2){
                 setBonsaiForm(false)
             }
+            setUploadingBonsai(false)
         })
         .catch(err => {
             throw err
@@ -35,7 +38,9 @@ function UserProfile(props) {
                     firebase={firebase}/>}
                 </FirebaseContext.Consumer>)
                ||
-               (bonsaiForm && <AddBonsai setBonsaiForm={setBonsaiForm} addBonsai={addBonsai}/>)
+               (bonsaiForm && 
+               <AddBonsai setBonsaiForm={setBonsaiForm} addBonsai={addBonsai}
+               uploadingBonsai={uploadingBonsai}/>)
             }
         </div>
     )
