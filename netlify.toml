@@ -1,8 +1,4 @@
 [[redirects]]
     from = "/*"
-    to = "/index.html"
-
-[[redirects]]
-    from = "/db/*"
     to = "https://agitated-swartz-6e38c9.netlify.com"
     
