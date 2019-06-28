@@ -1,4 +1,4 @@
 [[redirects]]
     from = "/*"
-    to = "https://agitated-swartz-6e38c9.netlify.com/:splat"
+    to = "https://bonsapp-server.herokuapp.com/:splat"
     
