@@ -1,4 +1,5 @@
 [[redirects]]
     from = "/*"
     to = "https://bonsapp-server.herokuapp.com/:splat"
+    status = 200
     
