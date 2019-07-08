@@ -3,7 +3,7 @@ import MostrarMuchasGuias from './MostrarMuchasGuias'
 import MostrarUnaGuia from './MostrarUnaGuia'
 import FiltroComponent from './FiltroComponent'
 import FixedButtons from './FixedButtonsComponent'
-import { FirebaseContext } from '../../../Firebase/index'
+import { FirebaseContext } from '../../Firebase/index'
 import axios from 'axios'
 import './DesplegarStyles.css'
 import './FixedButtonsStyles.css'
@@ -197,8 +197,10 @@ function DesplegarGuia(props) {
                     <h1>Cargando Guias...</h1>
                 </div>
             }
-            <FixedButtons setDeploy={setDeploy} setPaginas={setPaginas}
-            setViendoMias={props.setViendoMias}/>
+            {
+                showingMany && <FixedButtons setDeploy={setDeploy} setPaginas={setPaginas}
+                setViendoMias={props.setViendoMias}/>
+            }
         </div>
     )
 }

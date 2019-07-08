@@ -1,7 +1,11 @@
 import React from 'react'
 import './LoginRegisterStyles.css'
 
-function Login(props) {
+/**
+ * From de login        
+ * Validación de correo hecha con atributos de html
+ */
+export default function Login(props) {
 
     const handleSubmit = (e) => {
         props.logInUser({
@@ -40,5 +44,3 @@ function Login(props) {
         </div>
     )
 }
-
-export default Login

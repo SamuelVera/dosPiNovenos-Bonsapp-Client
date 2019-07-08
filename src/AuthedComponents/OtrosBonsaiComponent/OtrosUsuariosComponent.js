@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ComunidadComponent from './ComunidadComponent'
 import PerfilOtroUsuarioComponent from './PerfilOtroUsuarioComponent'
 import axios from 'axios'
-import { FirebaseContext } from '../../../Firebase/index'
+import { FirebaseContext } from '../../Firebase/index'
 import './OtrosUsuariosStyles.css'
 
 function OtrosUsuariosComponent(props){

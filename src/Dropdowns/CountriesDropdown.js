@@ -3,7 +3,10 @@ import axios from 'axios'
 import Select from 'react-select'
 import makeAnimated from 'react-select/lib/animated'
 
-function DropdownComponent(props){
+/**
+ * Dropdown con países para información del usuario
+ */
+export default function DropdownCountries(props){
 
     const [data, setData] = useState([])
 
@@ -35,5 +38,3 @@ function DropdownComponent(props){
         options={data}/> 
     )
 }
-
-export default DropdownComponent

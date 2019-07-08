@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import AgregarGuia from './AgregarGuiaComponent'
-import { FirebaseContext } from '../../../Firebase/index'
+import { FirebaseContext } from '../../Firebase/index'
 import MostrarMuchasMisGuiasComponent from './MostrarMuchasMisGuiasComponent'
 import GestionarUnaGuia from './GestionarUnaGuia'
 import GoBackFixedButtonComponent from '../GoBackFixedButtonComponent'

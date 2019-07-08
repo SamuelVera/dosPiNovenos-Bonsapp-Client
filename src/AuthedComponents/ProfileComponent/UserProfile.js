@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import AddBonsai from './bonsaiform'
 import PerfiYucaComponent from './PerfilYucaComponent'
 import axios from 'axios'
-import { FirebaseContext } from '../../../Firebase/index'
+import { FirebaseContext } from '../../Firebase/index'
 import './UserProfile.css'
 
 function UserProfile(props) {
