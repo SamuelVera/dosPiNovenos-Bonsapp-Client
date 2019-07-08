@@ -7,7 +7,12 @@ import axios from 'axios'
 
 import './HomeStyles.css'
 
-function Home() {
+/**
+ * Root de los componentes, nivel más alto
+ * 'Enrruta' los componentes de autentificación 
+ * y la parte interna de la PWA
+ */
+export default function Home() {
 
     const [authed, setAuthed] = useState(false)
     const [login, setLogin] = useState(true)
@@ -90,5 +95,3 @@ function Home() {
         </div>
     )
 }
-
-export default Home

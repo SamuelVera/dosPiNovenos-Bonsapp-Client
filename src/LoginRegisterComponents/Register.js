@@ -2,7 +2,11 @@ import React from 'react'
 import './LoginRegisterStyles.css'
 import DropdownComponent from '../Dropdowns/CountriesDropdown'
 
-function Register(props) {
+/**
+ * From de Registro        
+ * Validación de correo, longitud de campos y requeridos hecha con atributos de html
+ */
+export default function Register(props) {
 
     const handleSubmit = (e) => {
         if(!e.target.idpais.value){
@@ -65,5 +69,3 @@ function Register(props) {
         </div>
     )
 }
-
-export default Register

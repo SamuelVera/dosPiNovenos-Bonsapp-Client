@@ -1,7 +1,7 @@
 import React from 'react'
 import ValoracionBonsaiComponent from './ValoracionBonsaiComponent'
 import HistorialFotosOtroBonsaiComponent from './HistorialFotosOtroBonsaiComponent'
-import { FirebaseContext } from '../../../Firebase/index'
+import { FirebaseContext } from '../../Firebase/index'
 
 import './BonsaiOtroUsuarioStyles.css'
 

@@ -3,7 +3,7 @@ import HistorialFotosComponent from './HistorialFotosComponent'
 import UpdateBonsaiForm from './UpdateBonsaiForm'
 import ValoracionBonsaiComponent from '../OtrosBonsaiComponent/ValoracionBonsaiComponent'
 import GoBackFixedButtonComponent from '../GoBackFixedButtonComponent'
-import { FirebaseContext } from '../../../Firebase/index'
+import { FirebaseContext } from '../../Firebase/index'
 
 export default function OneBonsaiComponent(props){
 

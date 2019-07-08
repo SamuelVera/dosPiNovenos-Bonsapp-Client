@@ -2,7 +2,10 @@ import React from 'react'
 import axios from 'axios'
 import './NavbarStyles.css'
 
-function Navbar(props){
+/**
+ * Navbar para usuario autenticado
+ */
+export default function Navbar(props){
     return(
         <div className="navbar-div">
             <div className='wrapper'/>
@@ -39,5 +42,3 @@ function Navbar(props){
             </div>
         </div>)
 }
-
-export default Navbar
