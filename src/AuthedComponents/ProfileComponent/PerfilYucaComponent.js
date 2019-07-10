@@ -309,7 +309,7 @@ export default function PerfiYucaComponent(props){
                                 }}>Ascender de rango!</button>}
                                 {
                                     rangoId === 3 &&
-                                    <h2>Tienes el Maximo Rango!</h2>
+                                    <h2>Tienes el Rango Maximo!</h2>
                                 }
                                 {
                                     comprobandoAscenso && rangoId !== 3 &&
@@ -336,7 +336,7 @@ export default function PerfiYucaComponent(props){
                     ||
                     (viendoUno && 
                     <OneBonsaiComponent control={controlOne} setControl={setControlOne}
-                    setViendoUno={setViendoUno} bonsai={bonsaiViendo}
+                    setViendoUno={setViendoUno} bonsai={bonsaiViendo} idbonsai={idBonsaiViendo}
                     setIdBonsaiViendo={setIdBonsaiViendo}/>)
                 }
                 {

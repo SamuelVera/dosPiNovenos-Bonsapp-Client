@@ -27,7 +27,7 @@
     "styleguidist:dev": "npx styleguidist server",
     "styleguidist:build": "npx styleguidist build"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://bonsapp-server.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },

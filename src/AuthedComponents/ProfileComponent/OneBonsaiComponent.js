@@ -24,7 +24,7 @@ export default function OneBonsaiComponent(props){
                     <h3>{props.bonsai.id}</h3>
                     <h3>{props.bonsai.apodo}</h3>
                     <ValoracionBonsaiComponent userid={props.bonsai.idpropietario} 
-                    idpropietario={props.bonsai.idpropietario} idbonsai={props.bonsai.id}/>
+                    idpropietario={props.bonsai.idpropietario} idbonsai={props.idbonsai}/>
                 </div>
                 <div className="perfil-one-bonsai-info-tipo">
                     <h3>Especie: {props.bonsai.especie.nombrecomun} ({props.bonsai.especie.nombrecientifico})</h3>
@@ -44,7 +44,7 @@ export default function OneBonsaiComponent(props){
                 <FirebaseContext.Consumer>
                     {
                         firebase => <HistorialFotosComponent firebase={firebase}
-                        idpropietario={props.bonsai.iduser} idbonsai={props.bonsai.id} />
+                        idpropietario={props.bonsai.iduser} idbonsai={props.idbonsai} />
                     }
                 </FirebaseContext.Consumer>
             </div>
