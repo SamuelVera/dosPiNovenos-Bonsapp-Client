@@ -79,8 +79,14 @@ export default function VerResenasComponent(props){
             <h1>No hay resenas sobre esta guia</h1>)
             ||
             <div className="resenas">
-                {(resenas.map((row, index) => 
-                    <div className="resenas-item" key={index+1}>
+                {(resenas.map((row, index) => {
+                    
+                    const dates = row.fechapublicacion.toLocaleString()
+                    let [y, m, d, hh, mm, ss, ms] = dates.match(/\d+/g)
+                    let date = new Date(Date.UTC(y, m - 1, d, hh, mm, ss, ms))
+                    let formatted = date.toLocaleString()
+
+                    return(<div className="resenas-item" key={index+1}>
                         <div className="resenas-item-head"> {/* Encabezado de la reseña */}
                             <h3>{row.usuario.nombre} ({row.usuario.correo}):</h3>
                             <h3>Ptos: {row.puntuacion}</h3>
@@ -89,10 +95,9 @@ export default function VerResenasComponent(props){
                             <h4>{row.opinion}</h4>
                         </div>
                         <div className="resenas-item-foot">{/* Piso de la reseña */}
-                            <h5>{row.fechapublicacion}</h5>
+                            <h5>{formatted}</h5>
                         </div>
-                    </div>))
-                }
+                    </div>)}))}
                 {
                 (resenas.length !== 0 &&
                     <div className="resenas-buttons">  {/* Botones de avanzar página o devolver página */}

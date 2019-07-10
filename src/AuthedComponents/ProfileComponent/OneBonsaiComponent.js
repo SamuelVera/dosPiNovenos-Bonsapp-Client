@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import HistorialFotosComponent from './HistorialFotosComponent'
 import UpdateBonsaiForm from './UpdateBonsaiForm'
 import ValoracionBonsaiComponent from '../OtrosBonsaiComponent/ValoracionBonsaiComponent'
@@ -9,15 +9,27 @@ export default function OneBonsaiComponent(props){
 
     const [updating, setUpdating] = useState(false)
     const [uploadingBonsai, setUploadingBonsai] = useState(false)
+    const [prettyDate, setPrettyDate] = useState('')
+
+    useEffect(() => {
+        if(!props.fetchingBonsai){
+            const dates = props.bonsai.fechaagregado.toLocaleString()
+            let [y, m, d, hh, mm, ss, ms] = dates.match(/\d+/g);
+            let date = new Date(Date.UTC(y, m - 1, d, hh, mm, ss, ms));
+            let formatted = date.toLocaleString();
+            setPrettyDate(formatted)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[props.fetchingBonsai])
 
     return(<div>
         {
-            !props.bonsai.id &&
+            props.fetchingBonsai &&
             <div className="perfil-one-bonsai">
                 <h1>Cargando Bonsai...</h1>
             </div>
         }
-        {(!updating && props.bonsai.id &&
+        {(!updating && !props.fetchingBonsai &&
         <div className="perfil-one-bonsai">
             <div className="perfil-one-bonsai-info">
                 <div className="perfil-one-bonsai-info-basic">
@@ -33,7 +45,7 @@ export default function OneBonsaiComponent(props){
                 </div>
                 <div className="perfil-one-bonsai-info-fechas">
                     <h3>Fecha de cultivo: {props.bonsai.fechacultivo.toLocaleString()}</h3>
-                    <h3>Fecha de agregado: {props.bonsai.fechaagregado.toLocaleString()}</h3>
+                    <h3>Fecha de agregado: {prettyDate}</h3>
                     <button className="commonButton" onClick={() => {
                         setUpdating(true)
                     }}>Actualizar</button>
@@ -49,7 +61,7 @@ export default function OneBonsaiComponent(props){
                 </FirebaseContext.Consumer>
             </div>
         </div>)
-        ||(updating && props.bonsai.id &&
+        ||(updating && !props.fetchingBonsai &&
             <UpdateBonsaiForm bonsai={props.bonsai} setUpdating={setUpdating} 
             control={props.control} setControl={props.setControl} uploadingBonsai={uploadingBonsai}
             setUploadingBonsai={setUploadingBonsai}/>)}

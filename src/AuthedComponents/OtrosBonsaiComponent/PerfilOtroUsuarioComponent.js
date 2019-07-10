@@ -27,6 +27,7 @@ export default function PerfilOtroUsuarioComponent(props){
     const [viendoMuchasGuias, setViendoMuchasGuias] = useState(true)
 
     const [control, setControl] = useState(true)
+    const [fetchingBonsai, setFetchingBonsai] = useState(false)
     
     useEffect(() => {
         if(!viendoUnBonsai){
@@ -120,6 +121,7 @@ export default function PerfilOtroUsuarioComponent(props){
     useEffect(() => {
         let isSub = true
         if(idBonsaiViendo !== 0){
+            setFetchingBonsai(true)
             axios.post('/fetch-one-user-bonsai',{
                 iduser: props.usuario.id,
                 idbonsai: idBonsaiViendo
@@ -129,6 +131,7 @@ export default function PerfilOtroUsuarioComponent(props){
                     const {status, data} = res.data
                     if(status === 2){
                         setBonsaiViendo(data)
+                        setFetchingBonsai(false)
                         setViendoUnBonsai(true)
                     }else{
                         alert(data)
@@ -195,7 +198,7 @@ export default function PerfilOtroUsuarioComponent(props){
                     <div className="one-bonsai-otro-perfil"> 
                         <BonsaiOtroUsuarioComponent userid={props.user.id} bonsai={bonsaiViendo}
                         setBonsaiViendo={setBonsaiViendo} setViendoUno={setViendoUnBonsai}
-                        control={control} setControl={setControl}/>
+                        control={control} setControl={setControl} fetchingBonsai={fetchingBonsai}/>
                     </div>
                 )
             }
