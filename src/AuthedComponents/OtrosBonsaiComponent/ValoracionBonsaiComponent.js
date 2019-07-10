@@ -19,7 +19,7 @@ export default function ValoracionBonsaiComponent(props){
             if(isSub){
                 const { status, data } = res.data
                 if(status === 2){
-                    setValoracionGlobal(parseFloat(data))
+                    setValoracionGlobal(parseFloat(data).toFixed(2))
                 }else{
                     alert(data)
                 }
