@@ -19,6 +19,7 @@ export default function HistorialFotosComponent(props){
     useEffect(() => {
         let isSub = true
         setFetching(true)
+        setImagesUrls([])
         axios.post('/fetch-images-bonsai',{
             idbonsai: props.idbonsai,
             page
