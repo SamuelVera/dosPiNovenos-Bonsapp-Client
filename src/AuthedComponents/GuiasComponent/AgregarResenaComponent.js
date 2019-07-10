@@ -4,6 +4,9 @@ import axios from 'axios'
 
 import './GuiasStyles.css'
 
+/**
+ * Antes de Agregar una reseña se comprueba que el usuario tenga el rango necesario
+ */
 export default function AgregarResenaComponent(props){
 
     const [modalVisible, setModalVisible] = useState(false)

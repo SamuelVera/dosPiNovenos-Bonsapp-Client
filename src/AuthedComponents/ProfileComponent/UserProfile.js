@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import AddBonsai from './bonsaiform'
+import AddBonsai from './AddBonsai'
 import PerfiYucaComponent from './PerfilYucaComponent'
 import axios from 'axios'
 import { FirebaseContext } from '../../Firebase/index'

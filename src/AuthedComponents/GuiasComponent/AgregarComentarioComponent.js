@@ -4,6 +4,9 @@ import axios from 'axios'
 
 import './GuiasStyles.css'
 
+/**
+ * Componente para agregar un comentario
+ */
 export default function AgregarComentarioComponent(props){
 
     const [modalVisible, setModalVisible] = useState(false)

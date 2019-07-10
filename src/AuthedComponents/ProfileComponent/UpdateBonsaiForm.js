@@ -6,7 +6,11 @@ import TipoFormaDropdown from '../../Dropdowns/TipoFormaDropdown'
 
 import '../AuthedFormStyles.css'
 
-export default function UpdateBonsaiFormComponent(props){
+/**
+ * Form para actualizar datos de un bonsai
+ * Validación con html
+ */
+export default function UpdateBonsaiForm(props){
 
     const handleSubmit = (e) => {
         if(!e.target.especie){
