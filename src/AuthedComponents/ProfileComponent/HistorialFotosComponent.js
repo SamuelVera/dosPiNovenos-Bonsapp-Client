@@ -165,7 +165,7 @@ export default function HistorialFotosComponent(props){
             </div>
         }
         <div className="perfil-one-bonsai-historial-fotos">
-            { !fetching &&
+            { !fetching && imagesUrls.length === 0 &&
                 imagesUrls.map((imagen, i) => 
                     {
                         return(<div key={i+1} className="perfil-one-bonsai-historial-item">
