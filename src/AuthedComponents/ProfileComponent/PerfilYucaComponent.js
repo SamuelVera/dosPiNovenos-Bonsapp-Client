@@ -41,6 +41,7 @@ export default function PerfiYucaComponent(props){
     const [deletingBonsai, setDeletingBonsai] = useState(false)
     const [idBonsaiDeleting, setIdBonsaiDeleting] = useState(0)
     const [uploadingUser, setUploadingUser] = useState(false)
+    const [fetchingBonsai, setFetchingBonsai] = useState(false)
 
     useEffect(() => {
         if(!viendoUno){
@@ -160,6 +161,7 @@ export default function PerfiYucaComponent(props){
         let isSub = true
         if(idBonsaiViendo !== 0){
             setViendoUno(true)
+            setFetchingBonsai(true)
             axios.post('/fetch-one-user-bonsai',{
                 iduser: props.user.id,
                 idbonsai: idBonsaiViendo
@@ -169,6 +171,7 @@ export default function PerfiYucaComponent(props){
                     const {status, data} = res.data
                     if(status === 2){
                         setBonsaiViendo(data)
+                        setFetchingBonsai(false)
                         setViendoUno(true)
                     }else{
                         alert(data)
@@ -317,10 +320,18 @@ export default function PerfiYucaComponent(props){
                                 }
                             </div>
                         </div>
-                        { !fetching && <ManyBonsaisComponent 
+                        { (!fetching && bonsais.length!==0 && 
+                        <ManyBonsaisComponent 
                         handleEliminar={handleEliminar} imagenes={imagenes}
                         setIdBonsaiViendo={setIdBonsaiViendo} bonsais={bonsais}
-                        deletingBonsai={deletingBonsai} idBonsaiDeleting={idBonsaiDeleting}/>}
+                        deletingBonsai={deletingBonsai} idBonsaiDeleting={idBonsaiDeleting}/>)
+                        ||
+                        (
+                            !fetching && bonsais.length === 0 &&
+                            <div className="perfil-muchos-bonsais-all">
+                                <h1>No Hay Bonsais...</h1>
+                            </div>
+                        )}
                         <div>
                             <button className='fixedBottomRightButton fixedBottomAdd' 
                                 onClick={() => 
@@ -337,7 +348,7 @@ export default function PerfiYucaComponent(props){
                     (viendoUno && 
                     <OneBonsaiComponent control={controlOne} setControl={setControlOne}
                     setViendoUno={setViendoUno} bonsai={bonsaiViendo} idbonsai={idBonsaiViendo}
-                    setIdBonsaiViendo={setIdBonsaiViendo}/>)
+                    setIdBonsaiViendo={setIdBonsaiViendo} fetchingBonsai={fetchingBonsai}/>)
                 }
                 {
                     fetching &&

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import ValoracionBonsaiComponent from './ValoracionBonsaiComponent'
 import HistorialFotosOtroBonsaiComponent from './HistorialFotosOtroBonsaiComponent'
 import { FirebaseContext } from '../../Firebase/index'
@@ -6,6 +6,19 @@ import { FirebaseContext } from '../../Firebase/index'
 import './BonsaiOtroUsuarioStyles.css'
 
 export default function BonsaiOtroUsuarioComponent(props){
+
+    const [prettyDate, setPrettyDate] = useState()
+
+    useEffect(() => {
+        if(!props.fetchingBonsai){
+            const dates = props.bonsai.fechaagregado.toLocaleString()
+            let [y, m, d, hh, mm, ss, ms] = dates.match(/\d+/g);
+            let date = new Date(Date.UTC(y, m - 1, d, hh, mm, ss, ms));
+            let formatted = date.toLocaleString();
+            setPrettyDate(formatted)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[props.fetchingBonsai])
 
     return(<div className="bonsai-otro-container">
         <div className="bonsai-otro-info">
@@ -15,7 +28,7 @@ export default function BonsaiOtroUsuarioComponent(props){
                 <h3>Fecha cultivado: {props.bonsai.fechacultivo}</h3>
             </div>
             <div className="bonsai-otro-info-2">
-                <h3>Fecha agregado: {props.bonsai.fechaagregado}</h3>
+                <h3>Fecha agregado: {prettyDate}</h3>
                 <h3>Propietario: {props.bonsai.nombrePropietario}</h3>
                 <h3>Especie: {props.bonsai.especie.nombrecomun}({props.bonsai.especie.nombrecientifico})</h3>
             </div>

@@ -78,8 +78,14 @@ export default function ComentarioComponent(props){
         }
         <div className="comentarios-items">
             {
-                comentarios.map((row, index)=> 
-                    <div className="comentarios-item" key={index+1}>
+                comentarios.map((row, index)=> {
+                    
+                    const dates = row.fechapublicacion.toLocaleString()
+                    let [y, m, d, hh, mm, ss, ms] = dates.match(/\d+/g)
+                    let date = new Date(Date.UTC(y, m - 1, d, hh, mm, ss, ms))
+                    let formatted = date.toLocaleString()
+
+                    return(<div className="comentarios-item" key={index+1}>
                         <div className="comentarios-item-encabezado"> {/* Encabezado del comentario */}
                             <h4>{row.usuario.nombre} ({row.usuario.correo}):</h4>
                         </div>
@@ -87,9 +93,9 @@ export default function ComentarioComponent(props){
                             <h4>{row.contenido}</h4>
                         </div>
                         <div className="comentarios-item-pie"> { /* Pie del comentario */}
-                            <h5>{row.fechapublicacion}</h5>
+                            <h5>{formatted}</h5>
                         </div>
-                    </div>
+                    </div>)}
                 )
             }
         </div>
