@@ -11,7 +11,7 @@ export default function ManyBonsaisComponent(props){
                 <div className="perfil-muchos-bonsais-item-nobutton">
                     <div className="perfil-muchos-bonsais-item-info">
                         <h4>{bonsai.apodo}</h4>
-                        <h4>{bonsai.fechacultivo}</h4>
+                        <h4>{bonsai.fechacultivo.toLocaleString()}</h4>
                     </div>
                     <div className="perfil-muchos-bonsais-item-foto">
                         {
