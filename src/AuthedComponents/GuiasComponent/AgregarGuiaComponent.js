@@ -6,7 +6,10 @@ import axios from 'axios'
 
 import '../AuthedFormStyles.css'
 
-function AgregarGuia(props) {
+/**
+ * Validación de campos hecha con parámetros de html
+ */
+export default function AgregarGuiaComponent(props) {
     
     const handleSubmit = e => {
         let file = e.target.upload.files[0]
@@ -127,5 +130,3 @@ function AgregarGuia(props) {
     )
 
 }
-
-export default AgregarGuia

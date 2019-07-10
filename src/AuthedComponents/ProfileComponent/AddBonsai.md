@@ -1,0 +1,13 @@
+```js
+<AddBonsai 
+    addBonsai={function(bonsai){
+        alert(`Agregando
+            ${bonsai.apodo}
+            ${bonsai.especie}
+            ${bonsai.tipoforma}
+            ${bonsai.tamano}
+            ${bonsai.fechacultivo}
+        `)
+    }}
+/>
+```

@@ -4,6 +4,9 @@ import GoBackFixedButtonComponent from '../GoBackFixedButtonComponent'
 
 import './GuiasStyles.css'
 
+/**
+ * Form para actualizar datos de una guía
+ */
 export default function UpdateGuiaComponent(props){
 
     const handleSubmit = e => {

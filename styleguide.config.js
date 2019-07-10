@@ -34,7 +34,6 @@ module.exports = {
                     content: 'docs/loginregister.md',
                     components: [
                         'src/LoginRegisterComponents/*.js',
-                        'src/Dropdowns/CountriesDropdown.js',
                     ]
                 },{
                     name: 'Navbar',
@@ -43,7 +42,7 @@ module.exports = {
                     name: 'Perfil del Usuario',
                     content: 'docs/perfil.md',
                     components: [
-                        'src/AuthedComponents/ProfileComponent/bonsaiform.js',
+                        'src/AuthedComponents/ProfileComponent/AddBonsai.js',
                         'src/AuthedComponents/ProfileComponent/UpdateUserDatosComponentjs',
                         'src/AuthedComponents/ProfileComponent/UpdateBonsaiForm.js',
                     ]
@@ -62,9 +61,12 @@ module.exports = {
                 },{
                     name: 'Desconectar',
                     content: 'docs/disconnect.md'
+                },{
+                    name: 'Buttons',
+                    content: 'docs/fixed.md'
                 }]
             }] 
         }
     ],
-    assetsDir: '/docs/assets/'
+    assetsDir: 'docs/assets/'
 };

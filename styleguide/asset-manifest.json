@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5266b92b.chunk.css",
+    "main.js": "/build/main.654861e1.js",
+    "runtime~main.js": "/build/bundle.feb19782.js",
+    "build/2.365453da.js": "/build/2.365453da.js",
+    "add-button.png": "/add-button.png",
+    "avanzar-button.png": "/avanzar-button.png",
+    "bonsai-info.png": "/bonsai-info.png",
+    "comentarios-guia.png": "/comentarios-guia.png",
+    "disconnect-navbar.png": "/disconnect-navbar.png",
+    "gestionar-guia-opinion.png": "/gestionar-guia-opinion.png",
+    "gestionar-guia-pdf.png": "/gestionar-guia-pdf.png",
+    "guia-navbar.png": "/guia-navbar.png",
+    "index.html": "/index.html",
+    "mis-guias.png": "/mis-guias.png",
+    "muchas-guias.png": "/muchas-guias.png",
+    "otro-usuario-bonsai-guia.png": "/otro-usuario-bonsai-guia.png",
+    "otro-usuario.png": "/otro-usuario.png",
+    "otros-navbar.png": "/otros-navbar.png",
+    "otros-usuarios.png": "/otros-usuarios.png",
+    "perfil-navbar.png": "/perfil-navbar.png",
+    "perfil-usuario.png": "/perfil-usuario.png",
+    "precache-manifest.1a8dd50bef3c211e00b0764db69dbda5.js": "/precache-manifest.1a8dd50bef3c211e00b0764db69dbda5.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.5266b92b.chunk.css.map": "/static/css/main.5266b92b.chunk.css.map",
+    "ver-una-guia.png": "/ver-una-guia.png",
+    "volver-button.png": "/volver-button.png"
+  }
+}

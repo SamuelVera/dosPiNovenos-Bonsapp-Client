@@ -5,7 +5,11 @@ import GoBackFixedButtonComponent from '../GoBackFixedButtonComponent'
 
 import '../AuthedFormStyles.css'
 
-function AddBonsai(props){
+/**
+ * Form para agregar bonsai     
+ * Validaciones hechas con html
+ */
+export default function AddBonsai(props){
     
     const handleSubmit = (e) => {
         if(!e.target.especie){
@@ -70,5 +74,3 @@ function AddBonsai(props){
     </div>
     )
 }
-
-export default AddBonsai
