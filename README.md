@@ -13,7 +13,7 @@ Developed with the JS Library React.js using the following npm packages:
 
 # Setting up the Dev Server
 
-- Clone the repo.
+- Clone the repo with `git clone https://github.com/SamuelVera/dosPiNovenos-Bonsapp-Client.git`.
 - Run `npm i` with a cmd console inside folder of the cloned repo.
 - Run `npm run start` and wait for the developer server to be on.
 - Dev Server should be running in localhost port 3000.
