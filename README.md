@@ -10,3 +10,11 @@ Developed with the JS Library React.js using the following npm packages:
 - react-pdf (Display of PDF files)
 - react-select (Dropdowns with React props)
 - react-star-ratings (Visual component of the Rating System)
+
+# Setting up the Dev Server
+
+- Clone the repo
+- Run `npm i` with a cmd console inside folder of the cloned repo.
+- Run `npm run start` and wait for the developer server to be on.
+- Dev Server should be running in localhost port 3000.
+- Get on the backend dev server. Back end Repo: https://github.com/SamuelVera/dosPiNovenos-Bonsapp-Server
